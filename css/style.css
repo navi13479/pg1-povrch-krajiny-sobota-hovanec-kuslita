@@ -1,0 +1,224 @@
+:root {
+    --aqua: #56b6c2;
+    --blue: #61afef;
+    --purple: #c678dd;
+    --green: #98c379;
+    --pink: #e06c75;
+    --red: #be5046;
+    --brown: #d19a66;
+    --backgroundlight: #cccccc;
+    --backgrounddark: #252931;
+
+
+
+}
+
+.guiWrapper{
+    z-index: 1
+}
+
+html{
+    background: var(--backgrounddark);
+    color: var(--backgroundlight);
+    font-size: 12px
+}
+canvas {
+    position: absolute;
+    z-index: 0
+}
+body{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.controlsLegend{
+    z-index: inherit;
+    position: relative;
+    float: right;
+    display: grid;
+    background: var(--backgrounddark);
+    opacity: 0.3;
+    width: fit-content;
+    border-bottom-left-radius: 30px;
+
+    gap: 2rem;
+    padding: 2rem;
+    row-gap: 0.35rem;
+    align-content: start;
+    grid-template-columns: auto auto;
+}
+.controls{
+    z-index: inherit;
+    position: relative;
+    float: left;
+    display: grid;
+    background: var(--backgrounddark);
+    opacity: 0.3;
+    width: fit-content;
+
+    border-bottom-right-radius: 30px;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+    row-gap: 0.35rem;
+    align-content: start;
+
+}
+.icon{
+    z-index: inherit;
+    height: 1rem;
+    background-color: transparent;
+    fill: var(--backgroundlight);
+    filter: invert(100%)
+}
+
+.gridItem{
+    z-index: inherit;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+
+    width: 18rem;
+    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    border: 1px solid var(--green) ;
+    border-radius: 1rem;
+    row-gap: 0.35rem;
+
+}
+.gridItem-button
+{
+    z-index: inherit;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+
+    width: 18rem;
+    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    border: 1px solid var(--green) ;
+    border-radius: 1rem;
+
+
+}
+.gridItem-checkbox
+{
+    z-index: inherit;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    width: 18rem;
+    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    border: 1px solid var(--green);
+    border-radius: 1rem;
+    row-gap: 0.35rem;
+}
+
+#lockCheckbox {
+    margin-right: 8px;
+}
+
+.item{
+    z-index: inherit;
+    height: 2rem;
+    width:8rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-left: 10px;
+}
+.fit{
+    height: 2rem;
+    width:1rem;
+    z-index: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 10px;
+}
+
+.controls:hover,.controlsLegend:hover{
+    opacity: 1;
+}
+.controls:hover .slider{
+    width: 30rem;
+    transition: 1s;
+}
+.controls:hover .gridItem {
+    width: 42rem;
+    transition: 1s;
+}
+
+.controls:hover select {
+    width: 30rem;
+    transition: 1s;
+}
+.controls:hover select {
+    width: 30rem;
+    transition: 1s;
+}
+.slider{
+
+    z-index: inherit;
+    height: 1.5rem;
+    width:8rem;
+    border-radius: 1rem;
+    background: var(--backgroundlight);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 1s;
+    transition: opacity 1s;
+}
+.slider::-webkit-slider-thumb:hover,.slider::-webkit-slider-thumb:active{
+    transition: 0.3s;
+    width: 2.3rem;
+    height: 2.3rem;
+    z-index: inherit;
+}
+.slider::-moz-range-thumb:hover,.slider::-moz-range-thumb:active{
+    transition: 0.3s;
+    width: 2.3rem;
+    height: 2.3rem;
+    z-index: inherit;
+}
+.slider::-webkit-slider-thumb {
+    transition: 0.3s;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--green);
+    cursor: pointer;
+    border: none;
+    z-index: inherit;
+}
+
+.slider::-moz-range-thumb {
+    transition: 0.3s;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--green);
+    cursor: pointer;
+    border: none;
+    z-index: inherit;
+}
+
+body {
+
+    margin: 0;
+    overflow: hidden;
+
+}
+select{
+    font-size: 1rem;
+    border-radius: 1rem;
+    background: var(--backgroundlight);
+    height: 2rem;
+    width: 8rem;
+    outline: none;
+}
+button{
+    font-size: 1rem;
+}
+
+

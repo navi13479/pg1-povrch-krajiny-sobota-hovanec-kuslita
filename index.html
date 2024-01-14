@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html id="main" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Povrch Krajiny PICT</title>
+    <link rel="icon" href="assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://unpkg.com/three@0.159.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.159.0/examples/jsm/"
+          }
+        }
+    </script>
+
+</head>
+<script src="js/THREEx.KeyboardState.js"></script>
+<body>
+
+
+
+
+<div class="guiWrapper" >
+    <div class="controls">
+
+        <div class="gridItem">
+            <label class="item" for="lockCheckbox">Unlock movement</label>
+            <input class="item" type="checkbox" id="lockCheckbox">
+        </div>
+
+        <div class="gridItem">
+            <label class="item" for="speed">Movement speed</label>
+            <input id="speed" class="slider" type="range" min="0" max="20" step="0.1" oninput="updateMovementSpeed(this)">
+            <div class="item"> Current mov-speed</div>
+            <output id="speedOut" class="item">10</output>
+            <button class="item" id="defaultSpeed">Reset</button><div class="item"></div>
+        </div>
+
+        <div class = gridItem>
+            <label class="item" for="dayNightCheckbox">Day/Night Cycle</label>
+            <input class="item" type="checkbox" id="dayNightCheckbox" checked>
+
+            <label class="item" for="manualMove">Manual Move</label>
+            <input id="manualMove" class="slider" type="range" min="0" max="360" step="1" oninput="updateManualMove(this)">
+            <div class="item">Current value</div>
+            <output id="manualMoveOut" class="item">0</output>
+
+            <button class="item" id="defaultDay">Reset</button><div class="item"></div>
+        </div>
+
+        <div class="gridItem" style="border-color: var(--brown)">
+            <label class="item" for="MapVariant">Map Variant</label>
+            <input class="item" type="checkbox" id="MapVariant" checked>
+            <label class="item" for="waterLevel">Water Level</label>
+            <input id="waterLevel" class="slider" type="range" min="0" max="250" step="1" oninput="updateWaterLevel(this)">
+            <div class="item">Current water-lvl</div>
+            <output id="waterOut" class="item">0</output>
+            <button class="item" id="defaultWater">Reset</button><div class="item"></div>
+
+            <label class="item" for="scale">Scale Heights</label>
+            <input id="scale" class="slider" type="range" min="0" max="2000" step="5" oninput="updateHeights(this)">
+            <div class="item">Current scale</div>
+
+            <output id="heightsOut" class="item">750</output>
+            <button class="item" id="defaultScale">Reset</button><div class="item"></div>
+        </div>
+
+        <div class="gridItem" style="border-color: var(--pink)">
+            <label class="item" for="map">Choose a map:</label>
+            <select class="item" name="cars" id="map">
+                <script>
+                    var selectElement = document.getElementById("map");
+
+                    for(var i = 0; i < 20; i++){
+                        var option = document.createElement("option");
+                        option.value = "map-" + i + ".png";
+                        option.text = "Map " + i;
+                        selectElement.appendChild(option);
+                    }
+                </script>
+            </select>
+        </div>
+
+
+    </div>
+    <div class="controlsLegend">
+        <div class="fit" ><b >W</b></div> <i class="item">Forwards</i>
+        <div class="fit" ><b >S</b></div> <i class="item">Backwards</i>
+        <div class="fit" ><b >A</b></div> <i class="item">Left</i>
+        <div class="fit" ><b >D</b></div> <i class="item">Right</i>
+        <div class="fit" ><b >SHIFT</b></div> <i class="item">Down</i>
+        <div class="fit" ><b >SPACE</b></div> <i class="item">Up</i>
+        <div class="fit" ><b >E</b></div> <i class="item">Camera Lock</i>
+        <div class="fit"><img class="icon" id="icons" src = "assets/mouse.svg" alt="Mouse Icon"/></div>
+        <div> <i class="item">Camera</i></div>
+        <div class="fit" ><b >X</b></div> <i class="item">GUI scale up</i>
+        <div class="fit" ><b >Z</b></div> <i class="item">GUI scale down</i>
+
+
+    </div>
+</div>
+<script src="js/main.js" type="module"></script>
+<script src="js/sliderControls.js"></script>
+
+</body>
+</html>
